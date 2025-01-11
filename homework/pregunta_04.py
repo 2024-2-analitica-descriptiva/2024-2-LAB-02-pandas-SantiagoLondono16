@@ -20,3 +20,10 @@ def pregunta_04():
     E    4.785714
     Name: c2, dtype: float64
     """
+    import pandas as pd
+    tabla = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    tabla_prom = (tabla.groupby('c1').sum()['c2']) / (tabla.groupby('c1').count()['c2'])
+
+    return tabla_prom
+
+print(pregunta_04())

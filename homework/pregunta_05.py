@@ -20,3 +20,9 @@ def pregunta_05():
     E    9
     Name: c2, dtype: int64
     """
+    import pandas as pd
+    tabla = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    tabla_max = tabla.groupby('c1').max()['c2']
+
+    return tabla_max
+print(pregunta_05())

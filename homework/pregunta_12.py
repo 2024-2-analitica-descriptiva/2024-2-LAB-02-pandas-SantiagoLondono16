@@ -22,3 +22,11 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
+    import pandas as pd
+    tabla = pd.read_csv('files/input/tbl2.tsv', sep='\t')
+    tabla = tabla.sort_values(by='c5a')
+    tabla['c5'] = tabla['c5a'] + ':' + tabla['c5b'].apply(str)
+    talba_agrupada = tabla.groupby('c0').agg({'c5': ','.join})
+    talba_agrupada = talba_agrupada.reset_index()
+
+    return talba_agrupada
